@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             esValido = false;
         }
 
-        // --- ACCIONES SI ES VÁLIDO ---
+        //Acciones si es valido 
         if (esValido) {
             // 4. Crear Objeto Usuario
             const nuevoUsuario = {
@@ -149,4 +149,56 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('tema') === 'oscuro') {
         btnModoOscuro.click();
     }
+    // 1. AGRANDAR IMAGEN 
+    // Seleccionamos las imágenes del carrusel y el modal
+    const imagenesCarrusel = document.querySelectorAll('#carruselPeque .carousel-item img');
+    const miModal = new bootstrap.Modal(document.getElementById('imagenModal'));
+    const imagenEnModal = document.getElementById('modalImageSrc');
+
+    imagenesCarrusel.forEach(img => {
+        // Añadimos estilo de cursor para indicar que se puede seleccionar
+        img.style.cursor = 'zoom-in';
+        
+        img.addEventListener('click', function() {
+            // Ponemos la foto seleccionada dentro del modal y lo abrimos
+            imagenEnModal.src = this.src;
+            miModal.show();
+        });
+    });
+
+    // 2. BOTÓN CAMBIAR IMÁGENES
+    const btnCambiar = document.getElementById('btnCambiarCarrusel');
+    
+    btnCambiar.addEventListener('click', () => {
+        // Nuevas fotos aleatorias
+        const nuevasFotos = [
+            "https://picsum.photos/id/15/600/400",
+            "https://picsum.photos/id/28/600/400"
+        ];
+
+        // Recorremos las imágenes actuales y les cambiamos el src
+        imagenesCarrusel.forEach((img, index) => {
+            if (nuevasFotos[index]) {
+                img.src = nuevasFotos[index];
+                // Efecto visual rápido
+                img.style.opacity = 0;
+                setTimeout(() => img.style.opacity = 1, 200);
+            }
+        });
+    });
+
+    // 3. SELECTOR DE COLOR PARA LA TABLA
+    const inputColor = document.getElementById('colorTabla');
+    // Seleccionamos las celdas del encabezado th dentro del thead
+    const celdasHeader = document.querySelectorAll('.table thead th');
+
+    inputColor.addEventListener('input', (e) => {
+        const colorElegido = e.target.value;
+        
+        celdasHeader.forEach(th => {
+            th.style.setProperty('background-color', colorElegido, 'important');
+            //texto blanco para que se lea bien sobre colores oscuros
+            th.style.color = 'white'; 
+        });
+    });
 });
