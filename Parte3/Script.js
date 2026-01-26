@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     //DATOS
-    // 1. Array de objetos con los datos de las películas (incluye categoría para el resaltado)
+    // 1. Array de objetos con los datos de las películas
     const peliculas = [
         { titulo: "Matrix", precio: 9.99, categoria: "sci-fi" },
         { titulo: "Avatar", precio: 12.50, categoria: "sci-fi" },
@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // 3. Lógica de Resaltado: Si la categoría coincide, añadimos clase de Bootstrap
             if (generoResaltado === peli.categoria) {
                 fila.classList.add('table-warning'); // Color amarillo/naranja para resaltar
-                // Nota: En modo oscuro, table-warning se adapta si usas Bootstrap estándar, 
-                // o puedes definir tu propia clase CSS.
             }
 
             fila.innerHTML = `
@@ -75,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('tema', esOscuro ? 'oscuro' : 'claro');
     });
 
-    // Evento Reset (Parte 1)
+    // Evento Reset 
     document.getElementById('btnLimpiar').addEventListener('click', () => {
         formulario.reset();
         formulario.classList.remove('was-validated');
@@ -83,11 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
         toastLimpiar.show();
     });
 
-    // Evento Submit (Parte 1 y 2)
+    // Evento Submit 
     formulario.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // --- VALIDACIONES (Parte 1) ---
+        // --- VALIDACIONES ---
         let esValido = true;
         const nombre = document.getElementById('nombre');
         const fecha = document.getElementById('fechaNacimiento');
@@ -123,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             esValido = false;
         }
 
-        // --- ACCIONES SI ES VÁLIDO (Parte 2) ---
+        // --- ACCIONES SI ES VÁLIDO ---
         if (esValido) {
             // 4. Crear Objeto Usuario
             const nuevoUsuario = {

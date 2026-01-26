@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // VALIDACIÓN 3: Checkbox obligatorio (Términos)
+        // VALIDACIÓN 3: Checkbox obligatorio
         if (!checkTerminos.checked) {
             checkTerminos.classList.add('is-invalid');
             esValido = false;
