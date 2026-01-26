@@ -62,7 +62,7 @@ Se añadieron funcionalidades extra para enriquecer la interfaz:
 * **Selector de Color:** Permite cambiar el estilo del `thead` en tiempo real.
 
 **Captura de la Consola (Array de Usuarios):**
-`![Consola Array](Array.PNG)`
+![Consola Array](Array.PNG)
 
 ### E. Depuración (Breakpoint)
 Tal y como se solicitó en la práctica, se realizó una depuración para verificar la creación del objeto usuario.
@@ -71,4 +71,4 @@ Tal y como se solicitó en la práctica, se realizó una depuración para verifi
 Se colocó un *breakpoint* en la línea `arrayUsuarios.push(nuevoUsuario)`. Esto detuvo la ejecución y permitió inspeccionar en la sección **Scope** que las variables `nombre`, `email` y `suscripcion` tenían los valores correctos antes de guardarse.
 
 **Captura del Breakpoint en DevTools:**
-`![Breakpoint](Breakpoint.PNG)`
+![Breakpoint](Breakpoint.PNG)
